@@ -74,7 +74,7 @@ class MyQueue(object):
         :rtype: int
         """
         if self._reversed_queue.is_empty():
-            while self.queue1 is not None:
+            while self.queue1.is_empty() is False:
                 self._reversed_queue.push(self.queue1.pop())
         return self._reversed_queue.pop()
 
@@ -83,7 +83,7 @@ class MyQueue(object):
         :rtype: int
         """
         if self._reversed_queue.is_empty():
-            while self.queue1 is not None:
+            while self.queue1.is_empty() is False:
                 self._reversed_queue.push(self.queue1.pop())
         return self._reversed_queue.peek()
 
@@ -95,5 +95,8 @@ class MyQueue(object):
 
 obj = MyQueue()
 obj.push(2)
+obj.push(3)
+print(str(obj))
+print(obj.peek())
 print(obj.pop())
 print(obj.empty())
