@@ -47,9 +47,9 @@ class Stack:
             representation = ''
             head = self.stack
             while head.next is not None:
-                representation += f'{head.data}; '
+                representation += str(head.data) + ': '
                 head = head.next
-            representation += f'{head.data}'
+            representation += str(head.data)
             return representation
         return 'Stack is empty'
 
@@ -74,10 +74,8 @@ class MyQueue(object):
         :rtype: int
         """
         if self._reversed_queue.is_empty():
-            head = self.queue1.stack
-            while head is not None:
-                self._reversed_queue.push(head.data)
-                head = head.next
+            while self.queue1 is not None:
+                self._reversed_queue.push(self.queue1.pop())
         return self._reversed_queue.pop()
 
     def peek(self):
@@ -85,10 +83,8 @@ class MyQueue(object):
         :rtype: int
         """
         if self._reversed_queue.is_empty():
-            head = self.queue1.stack
-            while head is not None:
-                self._reversed_queue.push(head.data)
-                head = head.next
+            while self.queue1 is not None:
+                self._reversed_queue.push(self.queue1.pop())
         return self._reversed_queue.peek()
 
     def empty(self):
@@ -96,3 +92,8 @@ class MyQueue(object):
         :rtype: bool
         """
         return self.queue1.is_empty()
+
+obj = MyQueue()
+obj.push(2)
+print(obj.pop())
+print(obj.empty())
