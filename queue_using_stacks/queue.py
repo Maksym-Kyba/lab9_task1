@@ -58,7 +58,7 @@ class Stack:
 class MyQueue(object):
 
     def __init__(self):
-        self.queue1 = Stack()
+        self.queue = Stack()
         self._reversed_queue = Stack()
 
 
@@ -67,15 +67,15 @@ class MyQueue(object):
         :type x: int
         :rtype: None
         """
-        self.queue1.push(x)
+        self.queue.push(x)
 
     def pop(self):
         """
         :rtype: int
         """
         if self._reversed_queue.is_empty():
-            while self.queue1.is_empty() is False:
-                self._reversed_queue.push(self.queue1.pop())
+            while self.queue.is_empty() is False:
+                self._reversed_queue.push(self.queue.pop())
         return self._reversed_queue.pop()
 
     def peek(self):
@@ -83,15 +83,15 @@ class MyQueue(object):
         :rtype: int
         """
         if self._reversed_queue.is_empty():
-            while self.queue1.is_empty() is False:
-                self._reversed_queue.push(self.queue1.pop())
+            while self.queue.is_empty() is False:
+                self._reversed_queue.push(self.queue.pop())
         return self._reversed_queue.peek()
 
     def empty(self):
         """
         :rtype: bool
         """
-        return self.queue1.is_empty()
+        return self.queue.is_empty() and self._reversed_queue.is_empty()
 
 obj = MyQueue()
 obj.push(2)
