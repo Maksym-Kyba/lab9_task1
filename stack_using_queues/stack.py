@@ -86,7 +86,7 @@ class MyStack(object):
             self._reversed_stack.add(deleted_elem)
 
         deleted_elem = self.stack.pop()
-        self.stack = self._reversed_stack
+        self.stack, self._reversed_stack = self._reversed_stack, self.stack
         return deleted_elem
 
     def top(self):
@@ -98,7 +98,7 @@ class MyStack(object):
             self._reversed_stack.add(deleted_elem)
         deleted_elem = self.stack.pop()
         self._reversed_stack.add(deleted_elem)
-        self.stack = self._reversed_stack
+        self.stack, self._reversed_stack = self._reversed_stack, self.stack
         return deleted_elem
 
     def empty(self):
